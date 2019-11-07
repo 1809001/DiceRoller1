@@ -16,6 +16,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public void on_button_click(View view) {
 
         TextView tv = this.findViewById(R.id.numberTextView);
-        EditText et = this.findViewById(R.id.editText);
+        EditText et = this.findViewById(R.id.editText2);
         TextView st = this.findViewById(R.id.score);
 
         try {
@@ -86,10 +90,30 @@ public class MainActivity extends AppCompatActivity {
             Log.e("ButtonErrors",
             ex.toString());
         }
+        }
+
+    public void on_icebreaker_click(View view) {
+
+        TextView q = findViewById(R.id.QuestionsText);
+
+
+        ArrayList<String> stringArrayList = new ArrayList<String>();
+        stringArrayList.add(0,"if you could go anywhere in the world, where would you go?");
+        stringArrayList.add(1,"if you were stranded on a desert island, what three things would you want to take with you?");
+        stringArrayList.add(2,"if you could eat only one food for the rest of your life, what would it be?");
+        stringArrayList.add(3,"If you won a million dollars, what is the first thing you would buy?");
+        stringArrayList.add(4,"If you could spend the day with one fictional character, who would it be?");
+        stringArrayList.add(5,"If you found a magical latern and a genie gave you three wishes, what would you wish?");
+
+
+        Random n = new Random();
+        int random = n.nextInt((5+1));
+        q.setText(stringArrayList.get(random));
+    }
+
 
 
 
     }
 
 
-}
